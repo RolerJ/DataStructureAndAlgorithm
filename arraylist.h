@@ -12,13 +12,13 @@ public:
     ~ArrayList();
 
     // override
-    void output() const;
-    bool isEmpty() const;
-    int size() const;
-    const T &at(int index) const;
-    int indexOf(const T &e) const;
-    void remove(int index);
-    void insert(int index, const T &e);
+    void output() const override;
+    bool isEmpty() const override;
+    int size() const override;
+    const T &at(int index) const override;
+    int indexOf(const T &e) const override;
+    void remove(int index) override;
+    void insert(int index, const T &e) override;
 
     //
     int capacity() const;
