@@ -107,7 +107,7 @@ inline void ArrayList<T>::remove(int index)
         int newCapacity = std::max(m_capacity / 2, MIN_CAPACITY);
         T *newEles = new T[newCapacity];
         for (int i = 0; i < m_size; i++)
-            newEles = m_eles[i];
+            newEles[i] = m_eles[i];
         delete[] m_eles;
         m_eles = newEles;
         m_capacity = newCapacity;
@@ -132,8 +132,15 @@ inline void ArrayList<T>::insert(int index, const T &e)
         for (int i = 0; i < m_size; i++)
             newEles[i] = m_eles[i];
         delete[] m_eles;
+        m_eles = newEles;
         m_capacity = newCapacity;
     }
+}
+
+template <typename T>
+inline int ArrayList<T>::capacity() const
+{
+    return m_capacity;
 }
 
 ROLER_NS_END
