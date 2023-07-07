@@ -9,7 +9,7 @@ class ArrayList : public LinearList<T>
 public:
     ArrayList(int initCapacity = MIN_CAPACITY);
     ArrayList(const ArrayList<T> &other);
-    ~ArrayList();
+    ~ArrayList() override;
 
     // override
     void output() const override;
