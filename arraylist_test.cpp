@@ -1,27 +1,27 @@
 #include "arraylist.h"
+#include "gtest/gtest.h"
 
 using roler::ArrayList;
 
 int main()
 {
     ArrayList<int> arr;
-    
-    for (int i=0; i<50; i++)
+    EXPECT_EQ(arr.size(), 0);
+    for (int i = 0; i < 50; i++)
     {
         arr.insert(i, i);
+        EXPECT_EQ(arr.size(), i + 1);
         std::cout << "[capacity: " << arr.capacity() << " size:" << arr.size() << "]\n";
         arr.output();
     }
 
-    int target = 25;
-    std::cout << "index of " << target << " is " << arr.indexOf(target) << std::endl;
+    EXPECT_EQ(arr.at(25), 25);
+    EXPECT_EQ(arr.indexOf(35), 35);
 
-    int index = 35;
-    std::cout << "index at " << index << " is " << arr.at(index) << std::endl;
-
-    for (int i=0; i<50; i++)
+    for (int i = 0; i < 50; i++)
     {
-        arr.remove(arr.size());
+        arr.remove(0);
+        EXPECT_EQ(arr.size(), 50 - i - 1);
         std::cout << "[capacity: " << arr.capacity() << " size:" << arr.size() << "]\n";
         arr.output();
     }

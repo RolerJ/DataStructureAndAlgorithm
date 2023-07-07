@@ -78,7 +78,7 @@ inline int ArrayList<T>::size() const
 template <typename T>
 inline const T &ArrayList<T>::at(int index) const
 {
-    assert(index >= 0 && index <= m_size);
+    assert(index >= 0 && index < m_size);
 
     return m_eles[index];
 }
@@ -95,7 +95,7 @@ inline int ArrayList<T>::indexOf(const T &e) const
 template <typename T>
 inline void ArrayList<T>::remove(int index)
 {
-    assert(index >= 0 && index <= m_size);
+    assert(index >= 0 && index < m_size);
 
     for (int i = index; i < m_size; i++)
         m_eles[i] = m_eles[i + 1];
